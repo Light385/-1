@@ -1,0 +1,36 @@
+from random import randint
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QVBoxLayout
+app = QApplication([])
+main_win = QWidget()
+
+main_win.setWindowTitle('Информация о животном')
+main_win.move(800, 60)
+main_win.resize(500, 300)
+information = QLabel('Выбери одно животное чтобы узнать о нем информацию')
+informat = QLabel('?')
+button1 = QPushButton('Коала')
+button2 = QPushButton('Панда')
+button3 = QPushButton('Белый медведь')
+button4 = QPushButton('Тюлень')
+line = QVBoxLayout()
+line.addWidget(informat, alignment = Qt.AlignCenter)
+line.addWidget(information, alignment = Qt.AlignCenter)
+line.addWidget(button1, alignment = Qt.AlignCenter)
+line.addWidget(button2, alignment = Qt.AlignCenter)
+line.addWidget(button3, alignment = Qt.AlignCenter)
+line.addWidget(button4, alignment = Qt.AlignCenter)
+main_win.setLayout(line)
+def info1():
+    informat.setText('Коала — вид сумчатых, обитающий в Австралии. Единственный современный представитель семейства коаловых из отряда двурезцовых сумчатых.')
+def info2():
+    informat.setText('Большая панда, или бамбуковый медведь — вид всеядных млекопитающих из семейства медвежьих со своеобразной чёрно-белой окраской шерсти, обладающих некоторыми признаками енотов.')
+def info3():
+    informat.setText('Белый медведь, или полярный медведь, северный медведь, ошкуй, нанук, умка, — хищное млекопитающее семейства медвежьих, близкий родственник бурого медведя.')
+def info4():
+    informat.setText('Настоящие тюлени, или тюлени, — семейство хищных млекопитающих из парвотряда ластоногих подотряда собакообразных.')
+button1.clicked.connect(info1)
+button2.clicked.connect(info2)
+button3.clicked.connect(info3)
+button4.clicked.connect(info4)
+app.exec_()
